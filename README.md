@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/Unit_12_hw.png)
+(Downloads/Unit 12homework diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yaml file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -52,9 +52,10 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Jump Box | Yes                 |  Any                 |
+| Web-1    | No                  |  66.225.166.27 10.0.0.4 60.118.185.150 |
+| ElkStack | No                  |  66.225.166.27 10.0.0.4/14 10.0.0.0/32 |
+| Web-2    | No                  |  66.225.166.27 10.0.0.4 60.118.185.150 |
 
 ### Elk Configuration
 
@@ -69,7 +70,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker_ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_.png)
+(Downloads/docker_ps_.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -77,10 +78,12 @@ This ELK server is configured to monitor the following machines:
 - web2: 10.0.0.6
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- filebeats
+- metric beats
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- filebeats: collects log even data which is sent to our elk stack
+- metricbeat: collects metrics and statistics on the services running.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -91,8 +94,10 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to Public Elk Stack Server/Kibana to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- _Which file is the playbook? Where do you copy it?
+- filebeat-playbook.yml is the actual playbook file using the command: ansible-playbook filebeat-playbook.yml which is copied to the path /etc/ansible/roles
+- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+- The 'hosts' file is where we makes chnages to ansible on which servers to run, and even specify elkstack
 - _Which URL do you navigate to in order to check that the ELK server is running?
 - http://40.118.185.150:5601/app/kibana#/home
 
