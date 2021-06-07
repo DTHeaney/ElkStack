@@ -80,8 +80,7 @@ This ELK server is configured to monitor the following machines:
 - web2: 10.0.0.6
 
 We have installed the following Beats on these machines:
-- filebeats![docker_ps_output](https://user-images.githubusercontent.com/84424172/120985137-53f46e00-c749-11eb-8611-a4f8a5f0f1a4.png)
-
+- filebeats
 - metric beats
 
 These Beats allow us to collect the following information from each machine:
