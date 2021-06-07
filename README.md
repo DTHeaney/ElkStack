@@ -2,7 +2,8 @@
 
 The files in this repository were used to configure the network depicted below.
 
-(Downloads/Unit 12homework diagram.png)
+(Downloads/![docker_ps_output](https://user-images.githubusercontent.com/84424172/120985235-6cfd1f00-c749-11eb-885b-0a31fe55cadc.png)
+)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yaml file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -78,7 +79,8 @@ This ELK server is configured to monitor the following machines:
 - web2: 10.0.0.6
 
 We have installed the following Beats on these machines:
-- filebeats
+- filebeats![docker_ps_output](https://user-images.githubusercontent.com/84424172/120985137-53f46e00-c749-11eb-8611-a4f8a5f0f1a4.png)
+
 - metric beats
 
 These Beats allow us to collect the following information from each machine:
